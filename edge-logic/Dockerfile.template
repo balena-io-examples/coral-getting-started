@@ -1,6 +1,8 @@
 # Built using https://coral.withgoogle.com/tutorials/accelerator/
 FROM balenalib/%%BALENA_MACHINE_NAME%%-debian:latest
 
+RUN curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+
 # Install python3
 RUN install_packages python3-pip
 
