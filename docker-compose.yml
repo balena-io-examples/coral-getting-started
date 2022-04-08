@@ -9,8 +9,6 @@ services:
     tty: true
     restart: on-failure
     network_mode: host
-    depends_on:
-      - model
     volumes:
       - 'model-data:/models'
     labels:
