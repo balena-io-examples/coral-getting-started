@@ -50,7 +50,7 @@ With your new model added, perform another `balena push` to your application and
 [coral-usb]:https://coral.ai/products/accelerator/
 [coral-models]:https://coral.ai/models/
 [balena]:https://www.balena.io/
-[getting-started-balena]:https://www.balena.io/docs/learn/getting-started
+[getting-started-balena]:https://www.balena.io/docs/learn/getting-started/coral-dev/python/
 [balena-devices]:https://www.balena.io/docs/reference/hardware/devices/
 [add-new-device-coral]:https://www.balena.io/docs/learn/getting-started/coral-dev/python/#add-your-first-device
 [balena-cli]:https://www.balena.io/docs/reference/balena-cli/
