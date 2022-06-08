@@ -1,10 +1,23 @@
 # Built using https://coral.withgoogle.com/tutorials/accelerator/
-FROM balenalib/%%BALENA_MACHINE_NAME%%-debian:latest
+FROM balenalib/%%BALENA_MACHINE_NAME%%-debian
+
+# per: https://coral.ai/docs/edgetpu/compiler/#download
+
+# None of this is needed on Coral boards
+# This repo is needed for almost all packages below
+RUN echo "deb https://packages.cloud.google.com/apt coral-edgetpu-stable main" | sudo tee /etc/apt/sources.list.d/coral-edgetpu.list
+# This repo is needed for only python3-coral-cloudiot and python3-coral-enviro
+RUN echo "deb https://packages.cloud.google.com/apt coral-cloud-stable main" | sudo tee /etc/apt/sources.list.d/coral-cloud.list
 
 RUN curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 
-# Install python3
-RUN install_packages python3-pip
+RUN sudo apt-get update
+
+RUN sudo apt-get install python3-pycoral
+
+RUN sudo apt-get install python3-pip
+
+RUN python3 -m pip install tflite-runtime
 
 # udev in the container to enable TPU correctly
 ENV UDEV=1
